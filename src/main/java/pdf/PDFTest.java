@@ -5,6 +5,7 @@ import com.itextpdf.forms.fields.PdfFormField;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import dao.ConnectionProvider;
 
 import java.io.*;
 import java.sql.*;
@@ -24,17 +25,17 @@ public class PDFTest {
 
         Map<String, PdfFormField> fields = form.getFormFields();
 
-        fields.get("ДолжностьРуководителя").setValue("Руководитель отдела закупок").setReadOnly(true);
-        fields.get("ИмяРуководителя").setValue("Иванов А.С.").setReadOnly(true);
-        fields.get("ИмяЗаявителя").setValue("Сидоров Н.Д.").setReadOnly(true);
-        fields.get("ДолжностьЗаявителя").setValue("Стажёр отдела закупок").setReadOnly(true);
-        fields.get("ВремяОтпуска").setValue("28").setReadOnly(true);
-        fields.get("НачалоОтпуска").setValue("31.03.2019").setReadOnly(true);
-        fields.get("КонецОтпуска").setValue("27.04.2019").setReadOnly(true);
+        fields.get("Должность Руководителя").setValue("Руководитель отдела закупок").setReadOnly(true);
+        fields.get("Имя Руководителя").setValue("Иванов А.С.").setReadOnly(true);
+        fields.get("Имя Заявителя").setValue("Сидоров Н.Д.").setReadOnly(true);
+        fields.get("Должность Заявителя").setValue("Стажёр отдела закупок").setReadOnly(true);
+        fields.get("Время Отпуска").setValue("28").setReadOnly(true);
+        fields.get("Начало Отпуска").setValue("31.03.2019").setReadOnly(true);
+        fields.get("Конец Отпуска").setValue("27.04.2019").setReadOnly(true);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date curDate = new Date();
-        fields.get("fill_9").setValue(dateFormat.format(curDate)).setReadOnly(true);
+        fields.get("Дата").setValue(dateFormat.format(curDate)).setReadOnly(true);
 
         form.setNeedAppearances(true);
 
@@ -43,8 +44,8 @@ public class PDFTest {
         byte[] serializedDoc = baos.toByteArray();
 
         Map<String, String> map = new HashMap<>();
-        map.put("ДолжностьРуководителя", String.class.getName());
-        map.put("КонецОтпуска", Date.class.getName());
+        map.put("Должность Руководителя", String.class.getName());
+        map.put("Конец Отпуска", Date.class.getName());
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -55,13 +56,13 @@ public class PDFTest {
 
         try {
             Connection connection = ConnectionProvider.getConnection();
-//            PreparedStatement insertStatement = connection.prepareStatement("insert into pdf_documents"
-//                    + " (name, pdf_template, fields_mapping) values (?, ?, ?)");
-//            insertStatement.setString(1, "Order");
-//            insertStatement.setBytes(2, serializedDoc);
-//            insertStatement.setBytes(3, serializedMap);
-//            insertStatement.execute();
-//            insertStatement.close();
+            PreparedStatement insertStatement = connection.prepareStatement("insert into pdf_documents"
+                    + " (name, pdf_template, fields_mapping) values (?, ?, ?)");
+            insertStatement.setString(1, "NewOrder");
+            insertStatement.setBytes(2, serializedDoc);
+            insertStatement.setBytes(3, serializedMap);
+            insertStatement.execute();
+            insertStatement.close();
 
 
 
@@ -75,6 +76,15 @@ public class PDFTest {
                 PdfWriter pdfWriter = new PdfWriter("order.pdf");
 
                 PdfDocument pdfDocument = new PdfDocument(pdfReader, pdfWriter);
+
+                PdfAcroForm pdfAcroForm = PdfAcroForm.getAcroForm(pdfDocument, true);
+                Map<String, PdfFormField> fieldsAcroForm = pdfAcroForm.getFormFields();
+                for(String key : fieldsAcroForm.keySet())
+                    System.out.println(key);
+                fieldsAcroForm.get("Имя Руководителя").setValue("Николаев А.С.").setReadOnly(true);
+
+                pdfAcroForm.setNeedAppearances(true);
+
                 pdfDocument.close();
             }
 

@@ -1,4 +1,4 @@
-package pdf;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,6 @@ public class ConnectionProvider {
             Class.forName(DB_DRIVER);
         }
         catch (ClassNotFoundException e) {
-            e.printStackTrace();
             throw new RuntimeException("Cant find PSQL driver");
         }
     }
