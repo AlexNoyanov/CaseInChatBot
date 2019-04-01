@@ -8,6 +8,7 @@
     <artifactId>CaseInChatBot</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.itextpdf/itext7-core -->
         <dependency>
@@ -21,6 +22,13 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.1.1</version>
+        </dependency>
+
+        <!-- https://javarush.ru/groups/posts/504-sozdanie-telegram-bota-na-java-ot-idei-do-deploja -->
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>3.5</version>
         </dependency>
     </dependencies>
 
