@@ -5,6 +5,7 @@ import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.ApiContext;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -16,6 +17,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +63,13 @@ public class Bot extends TelegramLongPollingBot {
                     }
                     break;
                 case "Мои документы":
-                    sendMsg(message, "Список документов");
+                    //sendMsg(message, "Список документов");
+                    try {
+                        sendDocUploadingAFile(update.getMessage().getChatId(), new File("MOTORAMA.pdf"), "my file");
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+
                     break;
                 case "Помощь":
                     sendMsg(message, "*Привет, я бот для облегчения работы с документами.*\n" +
@@ -124,6 +132,16 @@ public class Bot extends TelegramLongPollingBot {
         inlineKeyboardMarkup.setKeyboard(rowList);
         return new SendMessage().setChatId(chatId).setText("Создать").setReplyMarkup(inlineKeyboardMarkup);
     }
+
+    private void sendDocUploadingAFile(Long chatId, java.io.File save,String caption) throws TelegramApiException {
+        SendDocument sendDocumentRequest = new SendDocument();
+        sendDocumentRequest.setChatId(chatId);
+        sendDocumentRequest.setDocument(save);
+        sendDocumentRequest.setCaption(caption);
+        execute(sendDocumentRequest);
+    }
+
+
 
     public String getBotUsername() {
         return BOTNAME;
