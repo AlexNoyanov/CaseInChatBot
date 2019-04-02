@@ -8,7 +8,9 @@ import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -19,7 +21,7 @@ import java.util.List;
 
 
 public class Bot extends TelegramLongPollingBot {
-    private final String BOTNAME= "CaseInDocHelperBot";
+    private final String BOTNAME = "CaseInDocHelperBot";
     private final String BOTTOKEN = "854269089:AAF-GvqdGb46vUlQMWl7Z8aOZ5cc9S_8vtc";
 
     public static void main(String[] args) {
@@ -48,15 +50,21 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public void onUpdateReceived(Update update) {
-        //Model model = new Model();
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
             switch (message.getText()) {
-                case "/help":
-                    sendMsg(message, "Чем могу помочь?");
+                case "Создать":
+                    try {
+                        execute(sendInlineKeyBoardMessage(update.getMessage().getChatId()));
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
                     break;
-                case "/setting":
-                    sendMsg(message, "Что будем настраивать?");
+                case "Мои документы":
+                    sendMsg(message, "Список документов");
+                    break;
+                case "Помощь":
+                    sendMsg(message, "Чем могу помочь?");
                     break;
                 default:
 
@@ -74,12 +82,30 @@ public class Bot extends TelegramLongPollingBot {
         List<KeyboardRow> keyboardRowList = new ArrayList<>();
         KeyboardRow keyboardFirstRow = new KeyboardRow();
 
-        keyboardFirstRow.add(new KeyboardButton("/help"));
-        keyboardFirstRow.add(new KeyboardButton("/setting"));
+        keyboardFirstRow.add(new KeyboardButton("Создать"));
+        keyboardFirstRow.add(new KeyboardButton("Мои документы"));
+        keyboardFirstRow.add(new KeyboardButton("Помощь"));
 
         keyboardRowList.add(keyboardFirstRow);
         replyKeyboardMarkup.setKeyboard(keyboardRowList);
 
+    }
+
+    public static SendMessage sendInlineKeyBoardMessage(long chatId) {
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+        InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
+        InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
+        inlineKeyboardButton1.setText("1");
+        inlineKeyboardButton1.setCallbackData("Button \"1\" has been pressed");
+        inlineKeyboardButton2.setText("2");
+        inlineKeyboardButton2.setCallbackData("Button \"2\" has been pressed");
+        List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
+        keyboardButtonsRow1.add(inlineKeyboardButton1);
+        keyboardButtonsRow1.add(inlineKeyboardButton2);
+        List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
+        rowList.add(keyboardButtonsRow1);
+        inlineKeyboardMarkup.setKeyboard(rowList);
+        return new SendMessage().setChatId(chatId).setText("Создать").setReplyMarkup(inlineKeyboardMarkup);
     }
 
     public String getBotUsername() {
