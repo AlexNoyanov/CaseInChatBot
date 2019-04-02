@@ -70,7 +70,21 @@ public class Bot extends TelegramLongPollingBot {
 
             }
         }
+        else if(update.hasCallbackQuery()) {
+            try {
+                execute(new SendMessage()
+                        .setText(update.getCallbackQuery().getData())
+                        .setChatId(update.getCallbackQuery().getMessage().getChatId()));
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+    /*case "1":
+                    sendMsg(message, "Кнопка 1");
+                case "2":
+                    sendMsg(message, "Кнопка 2");*/
 
     public void setButtons(SendMessage sendMessage) {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
