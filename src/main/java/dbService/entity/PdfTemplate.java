@@ -1,5 +1,8 @@
 package dbService.entity;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class PdfTemplate extends DataBaseObject{
     private String name;
     private byte[] serializedPdfTemplate;
@@ -33,5 +36,24 @@ public class PdfTemplate extends DataBaseObject{
 
     public void setSerializedFields(byte[] serializedFields) {
         this.serializedFields = serializedFields;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PdfTemplate)) return false;
+        PdfTemplate that = (PdfTemplate) o;
+        return Objects.equals(name, that.name) &&
+                Arrays.equals(serializedPdfTemplate, that.serializedPdfTemplate) &&
+                Arrays.equals(serializedFields, that.serializedFields) &&
+                id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, id);
+        result = 31 * result + Arrays.hashCode(serializedPdfTemplate);
+        result = 31 * result + Arrays.hashCode(serializedFields);
+        return result;
     }
 }

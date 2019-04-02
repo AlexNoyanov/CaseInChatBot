@@ -49,7 +49,7 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         PdfTemplate pdfTemplate = null;
         try(Statement statement = connection.createStatement()) {
             ResultSet rs = statement.executeQuery("select * from PdfTemplates" +
-                    " where name = " + name);
+                    " where name = " + "'" + name + "'");
             if(rs.next()) {
                 pdfTemplate = new PdfTemplate(rs.getString(2),
                         rs.getBytes(3),
@@ -137,7 +137,7 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
     public void deleteByName(String name) {
         try(Statement statement = connection.createStatement()) {
             statement.execute("delete from PdfTemplates" +
-                    " where name = " + name);
+                    " where name = " + "'" + name + "'");
         }
         catch (SQLException e) {
             e.printStackTrace();
