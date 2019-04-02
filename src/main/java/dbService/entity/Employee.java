@@ -1,4 +1,4 @@
-package employee;
+package dbService.entity;
 
 public class Employee {
     private String firstName;

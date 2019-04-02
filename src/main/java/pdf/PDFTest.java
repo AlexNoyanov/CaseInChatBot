@@ -5,7 +5,7 @@ import com.itextpdf.forms.fields.PdfFormField;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import dao.ConnectionProvider;
+import dbService.dao.ConnectionProvider;
 
 import java.io.*;
 import java.sql.*;
