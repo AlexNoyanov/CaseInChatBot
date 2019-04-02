@@ -29,7 +29,7 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         PdfTemplate pdfTemplate = null;
         try(Statement statement = connection.createStatement()) {
             ResultSet rs = statement.executeQuery("select * from PdfTemplates" +
-                    " where ifPdfTemplate = " + id);
+                    " where idPdfTemplate = " + id);
             if(rs.next()) {
                 pdfTemplate = new PdfTemplate(rs.getString(2),
                         rs.getBytes(3),
@@ -45,11 +45,11 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
     }
 
     @Override
-    public PdfTemplate getByName(String name) {
+    public PdfTemplate getByName(String fullName) {
         PdfTemplate pdfTemplate = null;
         try(Statement statement = connection.createStatement()) {
             ResultSet rs = statement.executeQuery("select * from PdfTemplates" +
-                    " where name = " + "'" + name + "'");
+                    " where fullName = " + "'" + fullName + "'");
             if(rs.next()) {
                 pdfTemplate = new PdfTemplate(rs.getString(2),
                         rs.getBytes(3),
@@ -87,9 +87,9 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
     @Override
     public void insert(PdfTemplate entity) {
         try(PreparedStatement statement = connection.prepareStatement("insert into PdfTemplates" +
-                " (name, serializedPdfTemplate, serializedFields) values (?, ?, ?)",
+                " (fullName, serializedPdfTemplate, serializedFields) values (?, ?, ?)",
                 Statement.RETURN_GENERATED_KEYS)) {
-                statement.setString(1, entity.getName());
+                statement.setString(1, entity.getFullName());
                 statement.setBytes(2, entity.getSerializedPdfTemplate());
                 statement.setBytes(3, entity.getSerializedFields());
                 statement.execute();
@@ -107,9 +107,9 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
     @Override
     public void update(PdfTemplate entity) {
         try(PreparedStatement statement = connection.prepareStatement("update PdfTemplates set" +
-                        " name = ?, serializedPdfTemplate = ?, serializedFields = ?" +
+                        " fullName = ?, serializedPdfTemplate = ?, serializedFields = ?" +
                         " where idPdfTemplate = ?")) {
-            statement.setString(1, entity.getName());
+            statement.setString(1, entity.getFullName());
             statement.setBytes(2, entity.getSerializedPdfTemplate());
             statement.setBytes(3, entity.getSerializedFields());
             statement.setInt(4, entity.getId());
@@ -134,10 +134,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
     }
 
     @Override
-    public void deleteByName(String name) {
+    public void deleteByName(String fullName) {
         try(Statement statement = connection.createStatement()) {
             statement.execute("delete from PdfTemplates" +
-                    " where name = " + "'" + name + "'");
+                    " where fullName = " + "'" + fullName + "'");
         }
         catch (SQLException e) {
             e.printStackTrace();

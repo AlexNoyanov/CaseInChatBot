@@ -4,22 +4,22 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class PdfTemplate extends DataBaseObject{
-    private String name;
+    private String fullName;
     private byte[] serializedPdfTemplate;
     private byte[] serializedFields;
 
-    public PdfTemplate(String name, byte[] serializedPdfTemplate, byte[] serializedFields) {
-        this.name = name;
+    public PdfTemplate(String fullName, byte[] serializedPdfTemplate, byte[] serializedFields) {
+        this.fullName = fullName;
         this.serializedPdfTemplate = serializedPdfTemplate;
         this.serializedFields = serializedFields;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public byte[] getSerializedPdfTemplate() {
@@ -43,7 +43,7 @@ public class PdfTemplate extends DataBaseObject{
         if (this == o) return true;
         if (!(o instanceof PdfTemplate)) return false;
         PdfTemplate that = (PdfTemplate) o;
-        return Objects.equals(name, that.name) &&
+        return Objects.equals(fullName, that.fullName) &&
                 Arrays.equals(serializedPdfTemplate, that.serializedPdfTemplate) &&
                 Arrays.equals(serializedFields, that.serializedFields) &&
                 id == that.id;
@@ -51,7 +51,7 @@ public class PdfTemplate extends DataBaseObject{
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, id);
+        int result = Objects.hash(fullName, id);
         result = 31 * result + Arrays.hashCode(serializedPdfTemplate);
         result = 31 * result + Arrays.hashCode(serializedFields);
         return result;
