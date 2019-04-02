@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="070713bc-fea2-4cae-bdfe-5b5ddb8adc83" name="Default" comment="Created">
-      <change afterPath="$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_GetAndUpdateTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_InsertAndDeleteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_GetAndUpdateTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_InsertAndDeleteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dbService/entity/PdfTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbService/entity/PdfTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dbService/entity/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dbService/entity/Document.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bot/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot/Bot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pdf/PDFTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pdf/PDFTest.class" afterDir="false" />
     </list>
@@ -23,119 +23,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Document.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dbService/entity/Document.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#983#984#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
-                <element signature="e#1050#1051#0" expanded="true" />
-                <element signature="e#1082#1083#0" expanded="true" />
-                <element signature="e#1113#1114#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
-                <element signature="e#1257#1258#0" expanded="true" />
-                <element signature="e#1298#1299#0" expanded="true" />
-                <element signature="e#1366#1367#0" expanded="true" />
-                <element signature="e#1426#1427#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1492#1493#0" expanded="true" />
-                <element signature="e#1540#1541#0" expanded="true" />
-                <element signature="e#1580#1581#0" expanded="true" />
-                <element signature="e#1621#1622#0" expanded="true" />
-                <element signature="e#1658#1659#0" expanded="true" />
-                <element signature="e#1718#1719#0" expanded="true" />
-                <element signature="e#1770#1771#0" expanded="true" />
-                <element signature="e#1803#1804#0" expanded="true" />
-                <element signature="e#1832#1833#0" expanded="true" />
-                <element signature="e#1876#1877#0" expanded="true" />
-                <element signature="e#1912#1913#0" expanded="true" />
-                <element signature="e#1951#1952#0" expanded="true" />
-                <element signature="e#1986#1987#0" expanded="true" />
-                <element signature="e#2042#2043#0" expanded="true" />
-                <element signature="e#2090#2091#0" expanded="true" />
-                <element signature="e#2123#2124#0" expanded="true" />
-                <element signature="e#2152#2153#0" expanded="true" />
-                <element signature="e#2196#2197#0" expanded="true" />
-                <element signature="e#2232#2233#0" expanded="true" />
-                <element signature="e#2265#2266#0" expanded="true" />
-                <element signature="e#2296#2297#0" expanded="true" />
-                <element signature="e#2341#2342#0" expanded="true" />
-                <element signature="e#2374#2375#0" expanded="true" />
-                <element signature="e#2408#2409#0" expanded="true" />
-                <element signature="e#2435#2436#0" expanded="true" />
-                <element signature="e#2478#2479#0" expanded="true" />
-                <element signature="e#2510#2511#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DocumentDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+            <state relative-caret-position="158">
+              <caret line="202" column="96" selection-start-line="202" selection-start-column="96" selection-end-line="202" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2671#2672#0" expanded="true" />
-                <element signature="e#2707#2708#0" expanded="true" />
-                <element signature="e#2796#2797#0" expanded="true" />
-                <element signature="e#2832#2833#0" expanded="true" />
-                <element signature="e#3078#3079#0" expanded="true" />
-                <element signature="e#3144#3145#0" expanded="true" />
-                <element signature="e#660#661#0" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-                <element signature="e#790#791#0" expanded="true" />
-                <element signature="e#3480#3481#0" expanded="true" />
-                <element signature="e#3549#3550#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PdfTemplateDAOImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAOImpl.java">
+      <file leaf-file-name="DocumentDAOImpl_GetAndUpdateTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_GetAndUpdateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#260#261#0" expanded="true" />
-                <element signature="e#323#324#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PdfTemplateDAOImpl_GetAndUpdateTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PdfTemplateDAOImpl_GetAndUpdateTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_GetAndUpdateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="84" column="39" lean-forward="true" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PdfTemplateDAOImpl_InsertAndDeleteTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_InsertAndDeleteTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="12" selection-start-line="12" selection-end-line="29" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -180,9 +93,6 @@
         <option value="$PROJECT_DIR$/src/main/java/dbService/entity/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/dbService/dao/DAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dbService/entity/DataBaseObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dbService/entity/Document.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/dbService/entity/PdfTemplate.java" />
@@ -190,6 +100,11 @@
         <option value="$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_InsertAndDeleteTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_GetAndUpdateTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dbService/entity/Document.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAO.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_InsertAndDeleteTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_GetAndUpdateTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java" />
       </list>
     </option>
   </component>
@@ -224,7 +139,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -322,8 +238,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,7 +246,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TrainingProjects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -359,36 +274,78 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PdfTemplateDAOImpl_GetAndUpdateTest">
-    <configuration name="Bot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bot.Bot" />
-      <module name="CaseInChatBot" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bot.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="PDFTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="pdf.PDFTest" />
-      <module name="CaseInChatBot" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="CaseInChatBot" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.DocumentDAOImpl_GetAndUpdateTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="DocumentDAOImpl_GetAndUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CaseInChatBot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbService.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dbService.dao" />
+      <option name="MAIN_CLASS_NAME" value="dbService.dao.DocumentDAOImpl_GetAndUpdateTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="DocumentDAOImpl_GetAndUpdateTest.getByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CaseInChatBot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbService.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dbService.dao" />
+      <option name="MAIN_CLASS_NAME" value="dbService.dao.DocumentDAOImpl_GetAndUpdateTest" />
+      <option name="METHOD_NAME" value="getByName" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="DocumentDAOImpl_InsertAndDeleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CaseInChatBot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbService.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dbService.dao" />
+      <option name="MAIN_CLASS_NAME" value="dbService.dao.DocumentDAOImpl_InsertAndDeleteTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration name="PdfTemplateDAOImpl_GetAndUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CaseInChatBot" />
@@ -475,19 +432,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.PDFTest" />
-      <item itemvalue="Application.Bot" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.PdfTemplateDAOImpl_InsertAndDeleteTest" />
       <item itemvalue="JUnit.PdfTemplateDAOImpl_GetAndUpdateTest" />
+      <item itemvalue="JUnit.DocumentDAOImpl_InsertAndDeleteTest" />
+      <item itemvalue="JUnit.DocumentDAOImpl_GetAndUpdateTest" />
+      <item itemvalue="JUnit.DocumentDAOImpl_GetAndUpdateTest.getByName" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DocumentDAOImpl_GetAndUpdateTest" />
+        <item itemvalue="JUnit.DocumentDAOImpl_GetAndUpdateTest.getByName" />
+        <item itemvalue="JUnit.DocumentDAOImpl_InsertAndDeleteTest" />
         <item itemvalue="JUnit.PdfTemplateDAOImpl_GetAndUpdateTest" />
         <item itemvalue="JUnit.PdfTemplateDAOImpl_InsertAndDeleteTest" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Bot" />
-        <item itemvalue="Application.PDFTest" />
       </list>
     </recent_temporary>
   </component>
@@ -507,7 +464,8 @@
       <workItem from="1554124837762" duration="9810000" />
       <workItem from="1554139315436" duration="751000" />
       <workItem from="1554148917974" duration="4938000" />
-      <workItem from="1554190551238" duration="13656000" />
+      <workItem from="1554190551238" duration="16081000" />
+      <workItem from="1554213457293" duration="5729000" />
     </task>
     <task id="LOCAL-00001" summary="Created test classes which demonstrates filling PDF template and uploading it to Data Base.">
       <created>1554062888889</created>
@@ -544,69 +502,85 @@
       <option name="project" value="LOCAL" />
       <updated>1554201367820</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added tests for implementation of PdfTemplateDAO.">
+      <created>1554204330208</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1554204330208</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 13h 49m 21s.xml">
-      <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 13h 52m 51s.xml">
-      <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 03m 45s.xml">
-      <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 04m 07s.xml">
-      <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 05m 02s.xml">
-      <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 06m 02s.xml">
-      <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PdfTemplateDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 13m 18s.xml">
       <configuration name="PdfTemplateDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PdfTemplateDAOImpl_GetAndUpdateTest - 2019.04.02 at 14h 23m 50s.xml">
+      <configuration name="PdfTemplateDAOImpl_GetAndUpdateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 57m 54s.xml">
+      <configuration name="DocumentDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_InsertAndDeleteTest - 2019.04.02 at 14h 59m 56s.xml">
+      <configuration name="DocumentDAOImpl_InsertAndDeleteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_GetAndUpdateTest - 2019.04.02 at 17h 24m 13s.xml">
+      <configuration name="DocumentDAOImpl_GetAndUpdateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_GetAndUpdateTest_getByName - 2019.04.02 at 17h 33m 18s.xml">
+      <configuration name="DocumentDAOImpl_GetAndUpdateTest.getByName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_GetAndUpdateTest_getByName - 2019.04.02 at 17h 50m 18s.xml">
+      <configuration name="DocumentDAOImpl_GetAndUpdateTest.getByName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_GetAndUpdateTest - 2019.04.02 at 17h 50m 59s.xml">
+      <configuration name="DocumentDAOImpl_GetAndUpdateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_GetAndUpdateTest - 2019.04.02 at 18h 21m 08s.xml">
+      <configuration name="DocumentDAOImpl_GetAndUpdateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DocumentDAOImpl_GetAndUpdateTest - 2019.04.02 at 18h 26m 55s.xml">
+      <configuration name="DocumentDAOImpl_GetAndUpdateTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50576000" />
+    <option name="totallyTimeSpent" value="58730000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32942432" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32942432" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32942432" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2546973" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2546973" />
       <window_info anchor="right" id="Bean Validation" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32942432" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32942432" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,20 +595,19 @@
     <MESSAGE value="Created PdfHandler to handle PDF documents." />
     <MESSAGE value="Created DAO architecture. Implemented DAO for PdfTemplate." />
     <MESSAGE value="Created implementation for DocumentDAO." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created implementation for DocumentDAO." />
+    <MESSAGE value="Added tests for implementation of PdfTemplateDAO." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests for implementation of PdfTemplateDAO." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/itextpdf/kernel/7.1.5/kernel-7.1.5.jar!/com/itextpdf/kernel/pdf/PdfName.class">
+    <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_GetAndUpdateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="290" column="32" selection-start-line="290" selection-start-column="32" selection-end-line="290" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/itextpdf/forms/7.1.5/forms-7.1.5.jar!/com/itextpdf/forms/PdfAcroForm.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="467" column="38" selection-start-line="467" selection-start-column="38" selection-end-line="467" selection-end-column="38" />
+        <state relative-caret-position="952">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
@@ -868,16 +841,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/C.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/C.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/pdf/PdfHandlerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -947,13 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.sql/java/sql/Timestamp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-123">
@@ -961,99 +918,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/entity/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-            <element signature="e#1082#1083#0" expanded="true" />
-            <element signature="e#1113#1114#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
-            <element signature="e#1298#1299#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1426#1427#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1580#1581#0" expanded="true" />
-            <element signature="e#1621#1622#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-            <element signature="e#1718#1719#0" expanded="true" />
-            <element signature="e#1770#1771#0" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1832#1833#0" expanded="true" />
-            <element signature="e#1876#1877#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
-            <element signature="e#1951#1952#0" expanded="true" />
-            <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
-            <element signature="e#2090#2091#0" expanded="true" />
-            <element signature="e#2123#2124#0" expanded="true" />
-            <element signature="e#2152#2153#0" expanded="true" />
-            <element signature="e#2196#2197#0" expanded="true" />
-            <element signature="e#2232#2233#0" expanded="true" />
-            <element signature="e#2265#2266#0" expanded="true" />
-            <element signature="e#2296#2297#0" expanded="true" />
-            <element signature="e#2341#2342#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#2408#2409#0" expanded="true" />
-            <element signature="e#2435#2436#0" expanded="true" />
-            <element signature="e#2478#2479#0" expanded="true" />
-            <element signature="e#2510#2511#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2671#2672#0" expanded="true" />
-            <element signature="e#2707#2708#0" expanded="true" />
-            <element signature="e#2796#2797#0" expanded="true" />
-            <element signature="e#2832#2833#0" expanded="true" />
-            <element signature="e#3078#3079#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-            <element signature="e#790#791#0" expanded="true" />
-            <element signature="e#3480#3481#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1067,10 +936,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/PdfTemplateDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        <state relative-caret-position="204">
+          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#260#261#0" expanded="true" />
@@ -1079,17 +955,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_InsertAndDeleteTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" selection-start-line="12" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="397">
+          <caret line="43" selection-start-line="43" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_InsertAndDeleteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/PdfTemplateDAOImpl_GetAndUpdateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="84" column="39" lean-forward="true" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
+        <state relative-caret-position="445">
+          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/entity/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1803#1804#0" expanded="true" />
+            <element signature="e#2341#2342#0" expanded="true" />
+            <element signature="e#2377#2378#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbService/dao/DocumentDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="202" column="96" selection-start-line="202" selection-start-column="96" selection-end-line="202" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dbService/dao/DocumentDAOImpl_GetAndUpdateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>

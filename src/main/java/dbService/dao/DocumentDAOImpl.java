@@ -79,13 +79,13 @@ public class DocumentDAOImpl implements DocumentDAO {
     }
 
     @Override
-    public Document getByName(String name) {
-        return getDocuments("name", name).get(0);
+    public Document getByName(String fullName) {
+        return getDocuments("fullName", fullName).get(0);
     }
 
     @Override
-    public List<Document> getAllByType(String type) {
-        return getDocuments("type", type);
+    public List<Document> getAllByType(String docType) {
+        return getDocuments("docType", docType);
     }
 
     @Override
@@ -114,11 +114,11 @@ public class DocumentDAOImpl implements DocumentDAO {
     }
 
     @Override
-    public List<Document> getAllAfterDate(Timestamp date) {
+    public List<Document> getAllAfterDate(Timestamp updateDate) {
         List<Document> list = new ArrayList<>();
         try(Statement statement = connection.createStatement()) {
             ResultSet rs = statement.executeQuery("select * from Documents" +
-                    " where date > " + "'" + date + "'");
+                    " where updateDate > " + "'" + updateDate + "'");
             while(rs.next()) {
                 Document document = new Document(rs.getString(2),
                         rs.getString(3),
@@ -171,11 +171,11 @@ public class DocumentDAOImpl implements DocumentDAO {
     @Override
     public void insert(Document entity) {
         try(PreparedStatement statement = connection.prepareStatement("insert into Documents" +
-                        " (type, name, serializedDocument, fromName, fromDepartment, toName," +
-                        " toDepartment, status, isClosed, date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        " (docType, fullName, serializedDocument, fromName, fromDepartment, toName," +
+                        " toDepartment, status, isClosed, updateDate) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, entity.getType());
-            statement.setString(2, entity.getName());
+            statement.setString(1, entity.getDocType());
+            statement.setString(2, entity.getFullName());
             statement.setBytes(3, entity.getSerializedDocument());
             statement.setString(4, entity.getFromName());
             statement.setString(5, entity.getFromDepartment());
@@ -183,7 +183,7 @@ public class DocumentDAOImpl implements DocumentDAO {
             statement.setString(7, entity.getToDepartment());
             statement.setString(8, entity.getStatus());
             statement.setBoolean(9, entity.isClosed());
-            statement.setTimestamp(10, entity.getDate());
+            statement.setTimestamp(10, entity.getUpdateDate());
             statement.execute();
 
             ResultSet generatedKeys = statement.getGeneratedKeys();
@@ -199,11 +199,11 @@ public class DocumentDAOImpl implements DocumentDAO {
     @Override
     public void update(Document entity) {
         try(PreparedStatement statement = connection.prepareStatement("update Documents set" +
-                        " type = ?, name = ?, serializedDocument = ?, fromName = ?, fromDepartment = ?," +
-                        " toName = ?, toDepartment = ?, status = ?, isClosed = ?, date = ?) where idDocument = ?",
+                        " docType = ?, fullName = ?, serializedDocument = ?, fromName = ?, fromDepartment = ?," +
+                        " toName = ?, toDepartment = ?, status = ?, isClosed = ?, updateDate = ? where idDocument = ?",
                 Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, entity.getType());
-            statement.setString(2, entity.getName());
+            statement.setString(1, entity.getDocType());
+            statement.setString(2, entity.getFullName());
             statement.setBytes(3, entity.getSerializedDocument());
             statement.setString(4, entity.getFromName());
             statement.setString(5, entity.getFromDepartment());
@@ -211,7 +211,7 @@ public class DocumentDAOImpl implements DocumentDAO {
             statement.setString(7, entity.getToDepartment());
             statement.setString(8, entity.getStatus());
             statement.setBoolean(9, entity.isClosed());
-            statement.setTimestamp(10, entity.getDate());
+            statement.setTimestamp(10, entity.getUpdateDate());
             statement.setInt(11, entity.getId());
             statement.execute();
         }

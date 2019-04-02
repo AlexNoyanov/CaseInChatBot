@@ -15,7 +15,7 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>itext7-core</artifactId>
             <version>7.1.5</version>
-            <type>pom</type>
+            <docType>pom</docType>
         </dependency>
 
         <dependency>

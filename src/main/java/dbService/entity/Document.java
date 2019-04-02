@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Document extends DataBaseObject{
-    private String type;
-    private String name;
+    private String docType;
+    private String fullName;
     private byte[] serializedDocument;
     private String fromName;
     private String fromDepartment;
@@ -14,11 +14,11 @@ public class Document extends DataBaseObject{
     private String toDepartment;
     private String status;
     private boolean isClosed;
-    private Timestamp date;
+    private Timestamp updateDate;
 
-    public Document(String type, String name, byte[] serializedDocument, String fromName, String fromDepartment, String toName, String toDepartment, String status, boolean isClosed, Timestamp date) {
-        this.type = type;
-        this.name = name;
+    public Document(String docType, String fullName, byte[] serializedDocument, String fromName, String fromDepartment, String toName, String toDepartment, String status, boolean isClosed, Timestamp updateDate) {
+        this.docType = docType;
+        this.fullName = fullName;
         this.serializedDocument = serializedDocument;
         this.fromName = fromName;
         this.fromDepartment = fromDepartment;
@@ -26,23 +26,23 @@ public class Document extends DataBaseObject{
         this.toDepartment = toDepartment;
         this.status = status;
         this.isClosed = isClosed;
-        this.date = date;
+        this.updateDate = updateDate;
     }
 
-    public String getType() {
-        return type;
+    public String getDocType() {
+        return docType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDocType(String docType) {
+        this.docType = docType;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public byte[] getSerializedDocument() {
@@ -101,12 +101,12 @@ public class Document extends DataBaseObject{
         isClosed = closed;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getUpdateDate() {
+        return updateDate;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setUpdateDate(Timestamp updateDate) {
+        this.updateDate = updateDate;
     }
 
     @Override
@@ -115,21 +115,21 @@ public class Document extends DataBaseObject{
         if (!(o instanceof Document)) return false;
         Document document = (Document) o;
         return isClosed == document.isClosed &&
-                Objects.equals(type, document.type) &&
-                Objects.equals(name, document.name) &&
+                Objects.equals(docType, document.docType) &&
+                Objects.equals(fullName, document.fullName) &&
                 Arrays.equals(serializedDocument, document.serializedDocument) &&
                 Objects.equals(fromName, document.fromName) &&
                 Objects.equals(fromDepartment, document.fromDepartment) &&
                 Objects.equals(toName, document.toName) &&
                 Objects.equals(toDepartment, document.toDepartment) &&
                 Objects.equals(status, document.status) &&
-                Objects.equals(date, document.date) &&
+                Objects.equals(updateDate, document.updateDate) &&
                 id == document.id;
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, type, name, fromName, fromDepartment, toName, toDepartment, status, isClosed, date);
+        int result = Objects.hash(id, docType, fullName, fromName, fromDepartment, toName, toDepartment, status, isClosed, updateDate);
         result = 31 * result + Arrays.hashCode(serializedDocument);
         return result;
     }

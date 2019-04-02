@@ -6,12 +6,12 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public interface DocumentDAO extends DAO<Document> {
-    Document getByName(String name);
-    List<Document> getAllByType(String type);
+    Document getByName(String fullName);
+    List<Document> getAllByType(String docType);
     List<Document> getAllByDeparture(String fromDepartment);
     List<Document> getAllByArrival(String toDepartment);
     List<Document> getAllBySender(String fromName);
     List<Document> getAllByRecipient(String toName);
     List<Document> getAllByStatus(boolean isClosed);
-    List<Document> getAllAfterDate(Timestamp date);
+    List<Document> getAllAfterDate(Timestamp updateDate);
 }
