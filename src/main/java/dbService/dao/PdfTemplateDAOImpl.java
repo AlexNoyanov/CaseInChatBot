@@ -6,6 +6,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Реализация доступа к таблице PdfTemplates
+ */
 public class PdfTemplateDAOImpl implements PdfTemplateDAO{
     private Connection connection;
 
@@ -13,6 +16,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         connection = ConnectionProvider.getConnection();
     }
 
+    /**
+     * Закончить работу с БД - закрыть соединение
+     * @throws Exception если произошла ошибка при закрытии соединения с БД
+     */
     @Override
     public void close() throws Exception {
         try {
@@ -24,6 +31,11 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         }
     }
 
+    /**
+     * Получить шаблон документа по его id
+     * @param id - id шаблона в таблице
+     * @return шаблон документа
+     */
     @Override
     public PdfTemplate getById(int id) {
         PdfTemplate pdfTemplate = null;
@@ -44,6 +56,11 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         return pdfTemplate;
     }
 
+    /**
+     * Получить шаблон документа по его имени
+     * @param fullName - имя шаблона
+     * @return шаблон документа
+     */
     @Override
     public PdfTemplate getByName(String fullName) {
         PdfTemplate pdfTemplate = null;
@@ -64,6 +81,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         return pdfTemplate;
     }
 
+    /**
+     * Получить шаблоны всех документов
+     * @return список шаблонов документов
+     */
     @Override
     public List<PdfTemplate> getAll() {
         List<PdfTemplate> list = new ArrayList<>();
@@ -84,6 +105,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         return list;
     }
 
+    /**
+     * Добавить в базу данных шаблон нового документа
+     * @param entity шаблон документа
+     */
     @Override
     public void insert(PdfTemplate entity) {
         try(PreparedStatement statement = connection.prepareStatement("insert into PdfTemplates" +
@@ -104,6 +129,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         }
     }
 
+    /**
+     * Обновить шаблон уже имеющегося документа
+     * @param entity - шаблон документа
+     */
     @Override
     public void update(PdfTemplate entity) {
         try(PreparedStatement statement = connection.prepareStatement("update PdfTemplates set" +
@@ -121,6 +150,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         }
     }
 
+    /**
+     * Удалить шаблон докуммента по его id
+     * @param id - id шаблона в таблице
+     */
     @Override
     public void deleteById(int id) {
         try(Statement statement = connection.createStatement()) {
@@ -133,6 +166,10 @@ public class PdfTemplateDAOImpl implements PdfTemplateDAO{
         }
     }
 
+    /**
+     * Удалить шаблон документа по его имени
+     * @param fullName - имя шаблона документа
+     */
     @Override
     public void deleteByName(String fullName) {
         try(Statement statement = connection.createStatement()) {
