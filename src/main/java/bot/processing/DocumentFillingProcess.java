@@ -335,7 +335,7 @@ public class DocumentFillingProcess extends Process {
     private void showPreview() {
         byte[] doc = pdfHandler.getSerializedDocument();
   //      RandomFileNameGenerator random = new RandomFileNameGenerator();
-        File pdf = new File(document.getDocType() + "№" + new Random(System.currentTimeMillis()).nextInt(Integer.MAX_VALUE));
+        File pdf = new File(document.getDocType() + "№" + new Random(System.currentTimeMillis()).nextInt(Integer.MAX_VALUE) + ".pdf");
         try {
             PdfDocument pdfDocument = new PdfDocument(new PdfReader(new ByteArrayInputStream(doc)),
                                                         new PdfWriter(new FileOutputStream(pdf)));
