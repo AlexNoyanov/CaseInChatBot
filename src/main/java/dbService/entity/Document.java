@@ -16,6 +16,8 @@ public class Document extends DataBaseObject{
     private boolean isClosed;
     private Timestamp updateDate;
 
+    public Document() {}
+
     public Document(String docType, String fullName, byte[] serializedDocument, String fromName, String fromDepartment, String toName, String toDepartment, String status, boolean isClosed, Timestamp updateDate) {
         this.docType = docType;
         this.fullName = fullName;

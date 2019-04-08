@@ -92,7 +92,8 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
     public Employee getByChatId(String chatId) {
-        List<Employee> list = getEmployees("select * from Employees where chatId = " + chatId);
+        List<Employee> list = getEmployees("select * from Employees where chatId = "
+                + "'" + chatId + "'");
         return list.isEmpty() ? null : list.get(0);
     }
 

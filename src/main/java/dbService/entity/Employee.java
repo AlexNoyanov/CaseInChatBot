@@ -5,18 +5,20 @@ public class Employee extends DataBaseObject{
     private String surName;
     private String middleName;
 
-    private String pos;
+    private String position;
     private String department;
 
     private String login;
     private String pass;
     private String chatId;
 
-    public Employee(String firstName, String surName, String middleName, String pos, String department, String login, String pass, String chatId) {
+    public Employee() {}
+
+    public Employee(String firstName, String surName, String middleName, String position, String department, String login, String pass, String chatId) {
         this.firstName = firstName;
         this.surName = surName;
         this.middleName = middleName;
-        this.pos = pos;
+        this.position = position;
         this.department = department;
         this.login = login;
         this.pass = pass;
@@ -26,6 +28,10 @@ public class Employee extends DataBaseObject{
     public String getShortName() {
         return surName + ' ' + Character.toUpperCase(firstName.charAt(0)) + '.'
                 + Character.toUpperCase(middleName.charAt(0)) + '.';
+    }
+
+    public String getFullName() {
+        return surName + " " + firstName + " " + middleName;
     }
 
     public String getFirstName() {
@@ -53,11 +59,11 @@ public class Employee extends DataBaseObject{
     }
 
     public String getPosition() {
-        return pos;
+        return position;
     }
 
     public void setPosition(String pos) {
-        this.pos = pos;
+        this.position = pos;
     }
 
     public String getDepartment() {

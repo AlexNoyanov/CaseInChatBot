@@ -8,6 +8,8 @@ public class PdfTemplate extends DataBaseObject{
     private byte[] serializedPdfTemplate;
     private byte[] serializedFields;
 
+    public PdfTemplate() {}
+
     public PdfTemplate(String fullName, byte[] serializedPdfTemplate, byte[] serializedFields) {
         this.fullName = fullName;
         this.serializedPdfTemplate = serializedPdfTemplate;

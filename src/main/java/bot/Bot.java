@@ -1,5 +1,7 @@
 package bot;
 
+import bot.processing.UserSession;
+import dbService.dao.DAOContext;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -19,83 +21,133 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class Bot extends TelegramLongPollingBot {
     private final String BOTNAME = "CaseInDocHelperBot";
     private final String BOTTOKEN = "854269089:AAF-GvqdGb46vUlQMWl7Z8aOZ5cc9S_8vtc";
 
-    public static void main(String[] args) {
-        ApiContextInitializer.init();
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+    private Map<String, UserSession> userSessions;
+    private DAOContext daoContext;
 
-        try {
-            telegramBotsApi.registerBot(new Bot());
-        } catch (TelegramApiRequestException e) {
-            e.printStackTrace();
-        }
+    private static Bot bot;
+    private Bot() {
+        userSessions = new ConcurrentHashMap<>();
+        daoContext = new DAOContext();
     }
 
-    public void sendMsg(Message message, String text) {
+    static {
+        bot = new Bot();
+    }
+
+    public static Bot getInstance() {
+        return bot;
+    }
+
+    public UserSession getUserSession(String chatId) {
+        return userSessions.getOrDefault(chatId, null);
+    }
+
+    public void sendMessage(String chatId, String text) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
-        sendMessage.setChatId(message.getChatId().toString());
-        //sendMessage.setReplyToMessageId(message.getMessageId());
+        sendMessage.setChatId(chatId);
         sendMessage.setText(text);
         try {
-            setButtons(sendMessage);
             execute(sendMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
 
-    public void onUpdateReceived(Update update) {
-        Message message = update.getMessage();
-        if (message != null && message.hasText()) {
-            switch (message.getText()) {
-                case "Создать":
-                    try {
-                        execute(sendInlineKeyBoardMessage(update.getMessage().getChatId()));
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-                case "Мои документы":
-                    //sendMsg(message, "Список документов");
-                    try {
-                        sendDocUploadingAFile(update.getMessage().getChatId(), new File("pika.jpg"), "my file");
-                    } catch (TelegramApiException e) {
-                        e.printStackTrace();
-                    }
-
-                    break;
-                case "Помощь":
-                    sendMsg(message, "*Привет, я бот для облегчения работы с документами.*\n" +
-                            "_Перечень моих команд:_\n" +
-                            "_Создать:_ здесь можно выбрать тип файла для работы\n" +
-                            "_Мои документы:_ вывод всех когда-либо отправленных документов и их текущего состояния\n");
-                    break;
-                default:
-
-            }
-        }
-        else if(update.hasCallbackQuery()) {
-            try {
-                execute(new SendMessage()
-                        .setText(update.getCallbackQuery().getData())
-                        .setChatId(update.getCallbackQuery().getMessage().getChatId()));
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+    public void sendMessage(String chatId, String text, InlineKeyboardMarkup keyboard) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.enableMarkdown(true);
+        sendMessage.setChatId(chatId);
+        sendMessage.setText(text);
+        sendMessage.setReplyMarkup(keyboard);
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
         }
     }
 
-    /*case "1":
-                    sendMsg(message, "Кнопка 1");
-                case "2":
-                    sendMsg(message, "Кнопка 2");*/
+    public void sendMessage(String chatId, String text, ReplyKeyboardMarkup keyboard) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.enableMarkdown(true);
+        sendMessage.setChatId(chatId);
+        sendMessage.setText(text);
+        sendMessage.setReplyMarkup(keyboard);
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onUpdateReceived(Update update) {
+        String chatId = null;
+        if(update.hasCallbackQuery())
+            chatId = String.valueOf(update.getCallbackQuery().getMessage().getChatId());
+        else if(update.hasMessage() && update.getMessage().getText() != null)
+            chatId = String.valueOf(update.getMessage().getChatId());
+        else
+            return;
+        if(userSessions.containsKey(chatId)) {
+            userSessions.get(chatId).executeActiveProcess(update);
+        }
+        else {
+            userSessions.put(chatId, new UserSession(daoContext, chatId));
+        }
+    }
+
+//    public void onUpdateReceived(Update update) {
+//        Message message = update.getMessage();
+//        if (message != null && message.hasText()) {
+//            switch (message.getText()) {
+//                case "Создать":
+//                    try {
+//                        execute(sendInlineKeyBoardMessage(update.getMessage().getChatId()));
+//                    } catch (TelegramApiException e) {
+//                        e.printStackTrace();
+//                    }
+//                    break;
+//                case "Мои документы":
+//                    //sendMsg(message, "Список документов");
+//                    try {
+//                        sendDocUploadingAFile(update.getMessage().getChatId(), new File("pika.jpg"), "my file");
+//                    } catch (TelegramApiException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                    break;
+//                case "Помощь":
+//                    sendMsgByChatId(String.valueOf(message.getChatId()), "*Привет, я бот для облегчения работы с документами.*\n" +
+//                            "_Перечень моих команд:_\n" +
+//                            "_Создать:_ здесь можно выбрать тип файла для работы\n" +
+//                            "_Мои документы:_ вывод всех когда-либо отправленных документов и их текущего состояния\n");
+//                    break;
+//                default:
+//
+//            }
+//        }
+//        else if(update.hasCallbackQuery()) {
+//            try {
+//                execute(new SendMessage()
+//                        .setText(update.getCallbackQuery().getData())
+//                        .setChatId(update.getCallbackQuery().getMessage().getChatId()));
+//            } catch (TelegramApiException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
 
     public void setButtons(SendMessage sendMessage) {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
@@ -114,31 +166,6 @@ public class Bot extends TelegramLongPollingBot {
         keyboardRowList.add(keyboardFirstRow);
         replyKeyboardMarkup.setKeyboard(keyboardRowList);
 
-    }
-
-    public static SendMessage sendInlineKeyBoardMessage(long chatId) {
-        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-        InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
-        InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
-        inlineKeyboardButton1.setText("1");
-        inlineKeyboardButton1.setCallbackData("Button \"1\" has been pressed");
-        inlineKeyboardButton2.setText("2");
-        inlineKeyboardButton2.setCallbackData("Button \"2\" has been pressed");
-        List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
-        keyboardButtonsRow1.add(inlineKeyboardButton1);
-        keyboardButtonsRow1.add(inlineKeyboardButton2);
-        List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
-        rowList.add(keyboardButtonsRow1);
-        inlineKeyboardMarkup.setKeyboard(rowList);
-        return new SendMessage().setChatId(chatId).setText("Создать").setReplyMarkup(inlineKeyboardMarkup);
-    }
-
-    private void sendDocUploadingAFile(Long chatId, java.io.File save,String caption) throws TelegramApiException {
-        SendDocument sendDocumentRequest = new SendDocument();
-        sendDocumentRequest.setChatId(chatId);
-        sendDocumentRequest.setDocument(save);
-        sendDocumentRequest.setCaption(caption);
-        execute(sendDocumentRequest);
     }
 
 
