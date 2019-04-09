@@ -110,11 +110,14 @@ public class DocumentFillingProcess extends Process {
         }
     }
 
+    private boolean sendToDepartmentFlag = false;
+
     private void sendToDepartmentRequest() {
         SendMessage message = new SendMessage();
         message.setText(fields.get(curFieldIndex).getRequest());
         message.setChatId(chatId);
         message.setReplyMarkup(createMarkupForToDepartmentMessage());
+        sendToDepartmentFlag = true;
 
         try {
             Bot.getInstance().execute(message);
@@ -168,8 +171,7 @@ public class DocumentFillingProcess extends Process {
         int max = curEmployeeIndex + 4;
         for(; curEmployeeIndex < employees.size() && curEmployeeIndex < max; curEmployeeIndex++) {
             Employee cur = employees.get(curEmployeeIndex);
-            keyboard.add(createRow(createButton(cur.getPosition() + " " + cur.getFullName(),
-                    cur.getPosition() + " " + cur.getFullName())));
+            keyboard.add(createRow(createButton(cur.getFullName(), String.valueOf(curEmployeeIndex))));
         }
         keyboard.add(createRow(createButton("Предыдущие", "Предыдущие"),
                                createButton("Следующие", "Следующие")));
@@ -226,6 +228,7 @@ public class DocumentFillingProcess extends Process {
                 pdfHandler.setField(fields.get(curFieldIndex).getField(), data);
                 curFieldIndex++;
                 document.setToDepartment(data);
+                sendToDepartmentFlag = false;
                 iterateCurFieldIndex();
             }
         }
@@ -254,18 +257,17 @@ public class DocumentFillingProcess extends Process {
                 }
             }
             else {
-                String[] posAndFIO = data.split(" ");
-                if(posAndFIO.length < 4)
-                    return;
+                Employee empl = employees.get(Integer.parseInt(data));
+             //   String[] posAndFIO = data.split(" ");
+              //  if(posAndFIO.length < 4)
+               //     return;
                 if(pdfHandler.getFieldValue("toPosition") != null) {
-                    pdfHandler.setField("toPosition", posAndFIO[0]);
+                    pdfHandler.setField("toPosition", empl.getPosition());
                     filledFields.add("toPosition");
                 }
-                pdfHandler.setField(fields.get(curFieldIndex).getField(), posAndFIO[1] +
-                        " " + posAndFIO[2] +
-                        " " + posAndFIO[3]);
+                pdfHandler.setField(fields.get(curFieldIndex).getField(), empl.getFullName());
                 curFieldIndex++;
-                document.setToName(data);
+                document.setToName(empl.getFullName());
                 iterateCurFieldIndex();
             }
         }
@@ -287,6 +289,7 @@ public class DocumentFillingProcess extends Process {
                 pdfHandler.setField(fields.get(curFieldIndex).getField(), msg);
                 curFieldIndex++;
                 document.setToDepartment(msg);
+                sendToDepartmentFlag = false;
                 iterateCurFieldIndex();
             }
         }
@@ -301,18 +304,17 @@ public class DocumentFillingProcess extends Process {
                     e.printStackTrace();
                 }
             } else {
-                String[] posAndFIO = msg.split(" ");
-                if(posAndFIO.length < 4)
-                    return;
+                Employee empl = employees.get(Integer.parseInt("data"));
+                //   String[] posAndFIO = data.split(" ");
+                //  if(posAndFIO.length < 4)
+                //     return;
                 if(pdfHandler.getFieldValue("toPosition") != null) {
-                    pdfHandler.setField("toPosition", posAndFIO[0]);
+                    pdfHandler.setField("toPosition", empl.getPosition());
                     filledFields.add("toPosition");
                 }
-                pdfHandler.setField(fields.get(curFieldIndex).getField(), posAndFIO[1] +
-                        " " + posAndFIO[2] +
-                        " " + posAndFIO[3]);
+                pdfHandler.setField(fields.get(curFieldIndex).getField(), empl.getFullName());
                 curFieldIndex++;
-                document.setToName(msg);
+                document.setToName(empl.getFullName());
                 iterateCurFieldIndex();
             }
         }
@@ -485,6 +487,8 @@ public class DocumentFillingProcess extends Process {
     }
 
     private void handleEditField(Update update) {
+        if(!update.hasMessage() || update.getMessage().getText() == null)
+            return;
         String data = update.getMessage().getText();
         pdfHandler.setField(fieldToEdit.getField(), data);
         curState = "showPreview";
@@ -574,7 +578,7 @@ public class DocumentFillingProcess extends Process {
                 handleEditField(update);
             }
         }
-        if(curFieldIndex < fields.size() && fields.get(curFieldIndex).getField().equals("toDepartment")) {
+        if(!sendToDepartmentFlag && curFieldIndex < fields.size() && fields.get(curFieldIndex).getField().equals("toDepartment")) {
             sendToDepartmentRequest();
             curState = "sendToDepartmentRequest";
         }
@@ -582,7 +586,7 @@ public class DocumentFillingProcess extends Process {
             sendToPersonRequest();
             curState = "sendToPersonRequest";
         }
-        else if(curFieldIndex < fields.size()){
+        else if(!sendToDepartmentFlag && curFieldIndex < fields.size()){
             sendDefaultRequest();
             curState = "sendDefaultRequest";
         }
